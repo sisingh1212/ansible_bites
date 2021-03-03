@@ -2,7 +2,7 @@
 #------------------------------------------------------------------
 # This playbook uses a condition which if true allows execution of the task when is defined into
 #
-#
+#Example ansible-playbook -i localhost -e my_username=username_sid ansible_when_playbook.yml
 #------------------------------------------------------------------
 #
 # Change History
