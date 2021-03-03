@@ -1,0 +1,36 @@
+---
+#------------------------------------------------------------------
+# This playbook uses a condition which if true allows execution of the task when is defined into
+#
+#
+#------------------------------------------------------------------
+#
+# Change History
+# Date        Name               Version    Description
+# 2020/03/03  Siddhartha Singh   00.00      Started new code
+#
+#
+########################################################################
+- name: when_usage
+  hosts: localhost
+  gather_facts: false
+  vars:
+    my_username: "{{ my_username }}" # passed as extra variable
+  tasks:
+    - name: Echo username
+      shell: whoami
+      register: echo_out
+    - name : check whoami output
+      debug:
+        msg: "{{ echo_out  }}"
+    - name: User name check and echo success
+      shell: echo success
+      when: ( echo_out.stdout| regex_search(my_username))
+      register: success_out
+    - name : Check previous playbook status
+      debug:
+        msg: "{{ success_out   }}"
+
+
+
+...
