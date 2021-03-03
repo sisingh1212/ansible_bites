@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Input the secret in ini file
+      lineinfile:
+        path: sec.ini
+        line: " SECRET_KEY: {{mypass}}"
+...
