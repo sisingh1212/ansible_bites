@@ -1,5 +1,19 @@
 ---
-- hosts: localhost
+
+#------------------------------------------------------------------
+# This playbook uses prompt function in ansible and a loop 
+#
+#    
+#------------------------------------------------------------------
+#
+# Change History              
+# Date        Name               Version    Description
+# 2020/03/03  Siddhartha Singh   00.00      Started new code
+# 
+#
+########################################################################
+- name: Use prompt in a playbook
+  hosts: localhost
   gather_facts: false
   vars_prompt:
     - name: env_name
