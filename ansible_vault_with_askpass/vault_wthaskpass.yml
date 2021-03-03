@@ -6,4 +6,5 @@
       lineinfile:
         path: sec.ini
         line: " SECRET_KEY: {{mypass}}"
+      no_log: True
 ...
