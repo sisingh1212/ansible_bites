@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  gather_facts: false
+  vars_prompt:
+    - name: env_name
+      prompt: Enter the env name
+  tasks:
+    - name: print the env name
+      shell: echo "{{ env_name }}"
+      register: echo_out
+    - name: Print the value of var
+      debug:
+        msg: "{{ item }}"
+      with_items:  "{{  echo_out.stdout_lines  }}"
+...
