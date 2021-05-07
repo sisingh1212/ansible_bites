@@ -1,0 +1,12 @@
+---
+- name: mtplaybk
+  hosts: localhost
+  tasks:
+    - name:
+      uri:
+        url: https://www.name.com/domain/search
+        return_content: yes
+      register: result
+      until: '"Start your domain name search" in result.content'
+      retries: 2
+      delay: 1
